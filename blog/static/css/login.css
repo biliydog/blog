@@ -1,0 +1,50 @@
+.bg{
+    background-color: #b3b5b5;
+    width: 100%;
+    padding-top: 200px;
+    height: 500px;
+    padding-bottom: 200px;
+}
+.container{
+    width: 60%;
+    margin: 0 auto;
+    background-color: #fff;
+    font-family: "Microsoft JhengHei Light";
+    border-radius: 8px;
+}
+.container .content{
+    width: 50%;
+    margin: 0 auto;
+}
+.register
+{
+    margin-left: 50px;
+}
+.register,
+.login{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+.register:hover,
+.login:hover,
+.s
+{
+    background-color: #28d1ff;
+    cursor: pointer;
+    color: #fff;
+    border-radius: 3px;
+}
+.register-forms{
+    display: none;
+}
+.error-no-u,
+.success{
+    display: none;
+}
+.error-w-pwd{
+    display: none;
+}
+.message-r{
+    color: #ffa1da;
+}

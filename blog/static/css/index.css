@@ -1,0 +1,115 @@
+
+body{
+    background-color: #ccc9c3;
+    font-family: "Microsoft JhengHei Light";
+}
+.head-nav{
+    width: 90%;
+    margin: 0 auto;
+    background-color: #f9efff;
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    border-radius: 5px;
+    height: 60px;
+    line-height: 60px;
+    position: fixed;
+    top: 0;
+    left: 5%;
+
+}
+.head-nav .mark{
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 5px;
+    font-size: 30px;
+    display: flex;
+    height: 80%;
+
+}
+.mark img{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+.mark h2{
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.head-nav ul{
+    height: 100%;
+    width: 40%;
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+
+}
+.head-nav ul li{
+    list-style: none;
+    padding: 0 10px;
+    margin: 0;
+}
+.head-nav ul li a{
+    text-decoration: none;
+    color: #555;
+    font-size: 25px;
+}
+.head-nav ul li a:hover{
+    background-color: #36b5a9;
+    color: #fff;
+    border-radius: 3px;
+}
+.container{
+    width: 90%;
+    margin: 80px auto auto auto;
+    /*background-color: #36b5a9;*/
+    display: flex;
+    justify-content: space-between;
+}
+.content{
+    width: 70%;
+    background-color: #ccc9c3;
+    padding-top: 0;
+
+}
+.side-bar{
+    width: 28%;
+    background-color: #fff;
+    box-shadow: 5px 5px 3px #888;
+    /*border: solid 2px #ffa1da;*/
+}
+.item1{
+    background-color: #fff;
+    margin: 0 10px 10px 10px;
+    border-radius: 5px;
+    padding: 10px;
+    /*border:3px solid #36b5a9;*/
+    box-shadow: 5px 5px 3px #888;
+}
+.down{
+    display: none;
+}
+.btn{
+    text-decoration: none;
+    color: #36b5a9;
+    font-weight: bold;
+}
+.btn:hover{
+    text-decoration: underline;
+}
+.logo{
+    overflow: hidden;
+    border-bottom: 1px #36b5a9 dotted;
+    padding-bottom: 10px;
+}
+.logo img{
+    margin-top: 20px;
+    margin-left: 15px;
+    border-radius: 50%;
+    width: 90%;
+    height: 260px;
+}
