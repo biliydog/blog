@@ -103,18 +103,18 @@ var AddLoft = function () {
 
 
 // *******显示所有loft***********
-var showAll= function (a) {
-    var loftList = JSON.parse(a);
-    for (var i=0;i<loftList.length;i++){
-        NewPackage(loftList[i]);
-    }
-};
+//var showAll= function (a) {
+//    var loftList = JSON.parse(a);
+//    for (var i=0;i<loftList.length;i++){
+//        NewPackage(loftList[i]);
+//    }
+//};
 
-
-var All =function () {
-    var form = {};
-    Request('/api/loft',showAll,form);
-};
+//
+//var All =function () {
+//    var form = {};
+//    Request('/api/loft',showAll,form);
+//};
 
 
 // ****************评论这一大坨不知道怎么拆**********************
@@ -125,36 +125,38 @@ var AddComment = function () {
         var that = $(this);
         var comList = that.parent().parent().next().next();
         var li = that.parent().parent().next().next().find('.com-input')
-        log('li找对了吗',li.attr('class'))
+        log('li找对了吗',li.attr('class'));
         comList.slideToggle();
-        var id = that.parent().prev().find('.loft-id').text();
-        log('loft-id:',id);
-        var form = {};
-        form.id = id;
-        log('loft-id:',form.id)
-        var request = {
-            url: '/api/comment_all',
-            type: 'post',
-            data: form,
-            success: function (data) {
-                var list = JSON.parse(data);
-                log('所有评论',list[0].content)
-                for (var i=0;i<list.length;i++){
-                    log('评论信息', list[i].user,list[i].content);
-                    var newLi = $('<li></li>');
-                    log('执行业绩程序了吗')
-                    newLi.addClass('bb');
-                    li.after(newLi);
-                    NewDom('<span></span>', 'comment-user', newLi, list[i].user);
-                    NewDom('<span></span>', 'comment-para', newLi, list[i].content);
-                    NewDom('<span></span>', 'comment-time', newLi, list[i].time);
+        var exit = comList.find('li');
+        if (exit.length <= 2){
+            var id = that.parent().prev().find('.loft-id').text();
+            log('loft-id:',id);
+            var form = {};
+            form.id = id;
+            log('loft-id:',form.id);
+            var request = {
+                url: '/api/comment_all',
+                type: 'post',
+                data: form,
+                success: function (data) {
+                    var list = JSON.parse(data);
+                    for (var i=0;i<list.length;i++){
+                        log('评论信息', list[i].user,list[i].content);
+                        var newLi = $('<li></li>');
+                        log('执行业绩程序了吗')
+                        newLi.addClass('bb');
+                        li.after(newLi);
+                        NewDom('<span></span>', 'comment-user', newLi, list[i].user);
+                        NewDom('<span></span>', 'comment-para', newLi, list[i].content);
+                        NewDom('<span></span>', 'comment-time', newLi, list[i].time);
+                    }
+                },
+                error: function () {
+                    alert('ajax fail');
                 }
-            },
-            error: function () {
-                alert('ajax fail');
-            }
-        };
-        $.ajax(request);
+            };
+            $.ajax(request);
+        }
     });
     // *******按下发送评论做的事***********
     binder.on('click', '.submit-comment', function () {
@@ -248,7 +250,7 @@ var Del = function () {
 var main =function () {
     AddLoft();
     AddComment();
-    All();
+//    All();
     ShowEditArea();
     Edit();
     Del();

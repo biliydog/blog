@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="../static/css/loft.css">
     <script src="../static/js/jquery-3.0.0.js"></script>
     <script src="../static/js/loft.js"></script>
-    <script src="../static/js/moment.js"></script>
+    <!--<script src="../static/js/moment.js"></script>-->
 </head>
 <body>
+
     <nav class="head-nav">
         <div class="mark">
             <img src="../static/img/logo.jpg" alt="logo">
@@ -18,29 +19,30 @@
         </div>
 
         <ul>
-            <li id="index"><a href="/index">首页</a></li>
-            <li id="loft"><a href='/loft'>微博</a></li>
-            <li id="store"><a href="/store">仓库</a></li>
+            <li id="index"><a href="{{url_for('sb.index')}}">首页</a></li>
+            <li id="loft"><a href="{{url_for('sb.loft_index_view')}}">微博</a></li>
+            <li id="store"><a href="{{url_for('sb.store_index')}}">仓库</a></li>
         </ul>
     </nav>
     <section class="container">
         <div class="content">
+            {% for i in lofts %}
             <section class="package">
                 <div class="item" >
-                    <h4 class="user">user</h4>
+                    <h4 class="user">{{i.user}}</h4>
                     <div class="para">
-                        <p class="loft">est</p>
-                        <span class="loft-id" ></span>
+                        <p class="loft">{{i.content}}</p>
+                        <span class="loft-id" >{{i.id}}</span>
                     </div>
                     <div class="bar">
                         <a href="#" class="submit-edit my-btn button button-glow button-rounded button-highlight">编辑</a>
                         <a href="#" class="submit-del my-btn button button-glow button-rounded button-caution">删除</a>
                         <a class="submit-com button button-glow button-rounded button-highlight">评论</a>
-                        <span class="time">1234567</span>
+                        <span class="time">{{i.time}}</span>
                     </div>
                 </div>
                 <div class="edit-area">
-                    <input class="enter-edit" type="text">
+                    <input class="enter-edit" type="text" placeholder="{{i.content}}">
                     <button class="button button-glow button-border button-rounded button-primary">发送</button>
                 </div>
                 <ul class="comment-list">
@@ -55,6 +57,7 @@
                     </li>
                 </ul>
             </section>
+            {% endfor %}
         </div>
         <div class="side-bar">
             <div class="enter">

@@ -1,0 +1,5 @@
+pip3 install flask flask-alchemy flask-script flask-moment
+
+
+
+#moment.js jquery.js buttons.css normalize.css

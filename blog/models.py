@@ -2,16 +2,23 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from static.utils import log
 import time
+from flask_moment import Moment
+from flask_script import Manager
+from flask_migrate import Migrate, MigrateCommand
+from datetime import datetime
 
 
 app = Flask(__name__)
 app.secret_key = 'json fun'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 # 指定数据库的路径
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:776632@localhost/blog'
 
 db = SQLAlchemy(app)
-
+migrate = Migrate(app, db)
+manager = Manager(app)
+manager.add_command('db', MigrateCommand)
+moment = Moment(app)
 
 class Helper(object):
     def __repr__(self):
@@ -38,7 +45,7 @@ class Loft(db.Model, Helper):
     __tablename__ = 'lofts'
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.String())
-    created_time = db.Column(db.Integer, default=0)
+    created_time = db.Column(db.String())
     user_id = db.Column(db.Integer)
 
     def __init__(self, form):
@@ -48,11 +55,12 @@ class Loft(db.Model, Helper):
     def valid(self):
         return len(self.content) > 0
 
-    def local_time(self):
-        string = '%Y/%m/%d %H:%M:%S'
-        value = time.localtime(self.created_time)
-        dt = time.strftime(string, value)
-        return dt
+    # def local_time(self):
+    #     # string = '%Y/%m/%d %H:%M:%S'
+    #     # value = time.localtime(self.created_time)
+    #     # dt = time.strftime(string, value)
+    #     dt = datetime.utcnow()
+    #     return dt
 
 
 class User(db.Model, Helper):
@@ -84,15 +92,10 @@ class Comment(db.Model, Helper):
     def valid(self):
         return len(self.content) > 0
 
-    def local_time(self):
-        string = '%Y/%m/%d %H:%M:%S'
-        value = time.localtime(self.created_time)
-        dt = time.strftime(string, value)
-        return dt
+
 
 if __name__ == '__main__':
     # 先 drop_all 删除所有数据库中的表
     # 再 create_all 创建所有的表
-    db.drop_all()
-    db.create_all()
-    print('rebuild database')
+    manager.run()
+    print('init database')

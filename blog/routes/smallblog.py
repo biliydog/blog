@@ -8,7 +8,9 @@ from flask import abort
 from static.utils import log
 from models import User
 from models import Loft
+from flask_moment import Moment
 import json
+from datetime import datetime
 
 
 small_blog = Blueprint('sb', __name__)
@@ -56,4 +58,22 @@ def store_index():
 
 @small_blog.route('/loft')
 def loft_index_view():
-    return render_template('loft.html')
+    log('调用了API吗？')
+    loft_list = Loft.query.all()
+    r  = {}
+    loft_info = []
+    for i in loft_list:
+
+        name = User.query.get(i.user_id).username
+        r = {
+            'content': i.content,
+            'user': name,
+            'id': i.id,
+            'time': i.created_time
+        }
+        loft_info.append(r)
+        r = {}
+    loft_info.reverse()
+    return render_template('loft2.html', lofts=loft_info)
+
+
