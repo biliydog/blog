@@ -43,7 +43,7 @@ var RegSuccess = function (num) {
     d.text(msg.message);
     // 注册成功则跳转页面
     if(msg.message == '注册成功！'){
-        var s = 'http://jsonbourne:3000/index';
+        var s = 'http://jsonbourne.cc:3000/index';
         log('到这里了');
         window.location.href = s;
     }
@@ -59,7 +59,7 @@ var LogSucess = function (a) {
     d.text(msg.message);
     // 登录成功则跳转页面
     if(msg.message == '登录成功！'){
-        var s = 'http://jsonbourne:3000/index';
+        var s = 'http://jsonbourne.cc:3000/index';
         log('到这里了');
         window.location.href = s;
     }
