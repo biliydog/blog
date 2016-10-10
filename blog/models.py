@@ -44,8 +44,8 @@ class Helper(object):
 class Loft(db.Model, Helper):
     __tablename__ = 'lofts'
     id = db.Column(db.Integer, primary_key=True)
-    content = db.Column(db.String())
-    created_time = db.Column(db.String())
+    content = db.Column(db.String(50))
+    created_time = db.Column(db.String(50))
     user_id = db.Column(db.Integer)
 
     def __init__(self, form):
@@ -66,8 +66,8 @@ class Loft(db.Model, Helper):
 class User(db.Model, Helper):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String())
-    password = db.Column(db.String())
+    username = db.Column(db.String(50))
+    password = db.Column(db.String(50))
 
     def __init__(self, form):
         self.username = form.get('username', '')
@@ -80,7 +80,7 @@ class User(db.Model, Helper):
 class Comment(db.Model, Helper):
     __tablename__ = 'comments'
     id = db.Column(db.Integer, primary_key=True)
-    content = db.Column(db.String())
+    content = db.Column(db.String(50))
     created_time = db.Column(db.Integer, default=0)
     user_id = db.Column(db.Integer)
     loft_id = db.Column(db.Integer)
