@@ -12,7 +12,7 @@ app = Flask(__name__)
 app.secret_key = 'json fun'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 # 指定数据库的路径
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:776632@localhost/myblog'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:776632@localhost/blogdb'
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
