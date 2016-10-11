@@ -22,7 +22,6 @@ var currentTime = function () {
 var article = function (editor) {
     var binder = $('body');
     binder.on('click', '.article-submit', function () {
-        preventDefault();
         var that = $(this),
             articles = that.next(),
             content = editor.$txt.html();
