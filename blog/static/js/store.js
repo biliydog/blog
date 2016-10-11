@@ -50,12 +50,25 @@ var article = function (editor) {
             req.time = currentTime();
             JSON.stringify(req);
             log('请求json化了以后',JSON.stringify(req));
-            Request('/api/new_article', req, newArticleSuccess);
+            AjRequest('/api/new_article', req, newArticleSuccess);
         }
     });
 };
 
-
+var AjRequest = function (link, fn, form) {
+    var request = {
+        url: link,
+        type: 'post',
+        data: form,
+        success: function (data) {
+            fn(data);
+        },
+        error: function () {
+            alert('ajax fail');
+        }
+    };
+    $.ajax(request);
+};
 /**
  * Created by Administrator on 2016/10/11.
  */
