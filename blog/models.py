@@ -93,6 +93,18 @@ class Comment(db.Model, Helper):
         return len(self.content) > 0
 
 
+class Article(db.Model, Helper):
+    __tablename__ = 'articles'
+    id = db.Column(db.Integer, primary_key=True)
+    content = db.Column(db.Text)
+    created_time = db.Column(db.String(50))
+    user_id = db.Column(db.Integer)
+    loft_id = db.Column(db.Integer)
+
+    def __init__(self, form):
+        self.content = form.get('para', '')
+        self.created_time = form.get('time', '')
+
 
 if __name__ == '__main__':
     # 先 drop_all 删除所有数据库中的表
