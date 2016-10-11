@@ -76,8 +76,8 @@ def loft_index_view():
     loft_info.reverse()
     return render_template('loft2.html', lofts=loft_info)
 
-
-@small_blog.route('/favicon.ico')
-def fav_ico():
-    return url_for('static', filename='img/fav.jpg', _external=True)
+#
+# @small_blog.route('/favicon.ico')
+# def fav_ico():
+#     return url_for('static', filename='img/fav.jpg', _external=True)
 
