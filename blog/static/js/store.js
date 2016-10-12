@@ -50,7 +50,7 @@ var article = function (editor) {
             req.time = currentTime();
             JSON.stringify(req);
             log('请求json化了以后',JSON.stringify(req));
-            AjRequest('/api/new_article', req, newArticleSuccess);
+            AjRequest('/api/new_article', newArticleSuccess,req);
         }
     });
 };
