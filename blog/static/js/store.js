@@ -69,6 +69,15 @@ var AjRequest = function (link, fn, form) {
     };
     $.ajax(request);
 };
+
+
+var NewDom = function (a, b, c, d) {
+    var s = $(a);
+    s.addClass(b);
+    s.text(d);
+    c.append(s);
+    return s
+};
 /**
  * Created by Administrator on 2016/10/11.
  */
