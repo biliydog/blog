@@ -36,6 +36,6 @@ def new_article():
 
 
 def find_title(a):
-    cache = a.splite('<h2>', 1)[1]
-    title = cache.splite('</h2>', 1)[0]
+    cache = a.split('<h2>', 1)[1]
+    title = cache.split('</h2>', 1)[0]
     return title
