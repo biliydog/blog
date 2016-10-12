@@ -40,7 +40,6 @@ var article = function (editor) {
             NewDom('<div></div>', '.article-time', header,res.created_time);
             var para = $('<div></div>').append(content);
             newArticle.append(para);
-            newArticle.prepend(content);
         };
         log('编辑器里拿到的东西：', content);
         //如果编辑器里不是空的话，构建请求并发给后端
