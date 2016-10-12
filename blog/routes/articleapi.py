@@ -16,7 +16,7 @@ from routes.sbapi import current_user
 article_api = Blueprint('articleapi', __name__)
 
 
-@article_api.route('/api/new_article', methods=['POST'])
+@article_api.route('/new_article', methods=['POST'])
 def new_article():
     form = request.form
     user = current_user()
