@@ -1,6 +1,7 @@
 from flask import Flask
 from routes.sbapi import sbapi as sbapi_routes
 from routes.smallblog import small_blog as small_routes
+from routes.articleapi import article_api as article_api_routes
 from flask_script import Manager
 
 
@@ -12,6 +13,7 @@ manager = Manager(app)
 
 app.register_blueprint(small_routes)
 app.register_blueprint(sbapi_routes, url_prefix='/api')
+app.register_blueprint(article_api_routes, url_prefix='/api')
 
 
 if __name__ == '__main__':
