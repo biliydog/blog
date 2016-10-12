@@ -1,50 +1,66 @@
-.bg{
-    background-color: #b3b5b5;
-    width: 100%;
-    padding-top: 200px;
-    height: 500px;
-    padding-bottom: 200px;
+body{
+    background: url("../img/store.jpg")no-repeat;
+    background-size:100%;
 }
 .container{
-    width: 60%;
-    margin: 0 auto;
-    background-color: #fff;
-    font-family: "Microsoft JhengHei Light";
-    border-radius: 8px;
+    width: 20%;
+    background-color: rgba(85, 85, 85, 0.1);;
+    padding: 15px;
+    border-radius: 5%;
+    margin-top: 7%;
+    margin-left: 8%;
+    z-index: 11000;
+    display: none;
 }
-.container .content{
-    width: 50%;
-    margin: 0 auto;
+.headline{
+    border-bottom: 1px solid #fff;
+    font-family: "Microsoft JhengHei";
 }
-.register
-{
-    margin-left: 50px;
+.headline a{
+    margin-left: 10px;
 }
-.register,
-.login{
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
+.login-form,
+.reg-form{
+    display:flex;
+    flex-direction: column;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-top: 10px;
 }
-.register:hover,
-.login:hover,
-.s
-{
-    background-color: #28d1ff;
+.reg-form{
+    display: none;
+}
+input{
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    height: 20px;
+}
+button{
+    font-family: "Microsoft JhengHei";
+    border-radius: 10px;
+    width: 90%;
+    height: 40px;
+    background-color: rgba(251, 216, 255, 0.27);
+    margin: 10px 5px 5px 5px;
+    /*border: 1px solid #28d1ff;*/
     cursor: pointer;
-    color: #fff;
+}
+a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
     border-radius: 3px;
 }
-.register-forms{
-    display: none;
+a:hover,
+a:active{
+    background: #fff;
 }
-.error-no-u,
-.success{
-    display: none;
+.s{
+    background-color: #fff;
+    color: #555;
 }
-.error-w-pwd{
-    display: none;
-}
-.message-r{
-    color: #ffa1da;
+.h1{
+    margin-left: 5%;
+    margin-top: 10%;
+    font-size: 55px;
+    font-family: Cambria;
 }

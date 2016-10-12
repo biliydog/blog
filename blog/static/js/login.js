@@ -1,7 +1,3 @@
-/**
- * Created by Administrator on 2016/9/19.
- */
-// *********测试工具函数*********
 var log = function () {
     console.log(arguments)
 };
@@ -9,27 +5,29 @@ var log = function () {
 
 var validate = function (s) {
     return s.length > 0;
-}
+};
 
 // *******切换登录和注册表单*********
 var changeDom = function () {
-    var login = $('.login');
-    var register = $('.register');
-    var registerForm = $('.register-forms');
-    var loginForm = $('.login-form');
+    var login = $('.login'),
+        register = $('.register'),
+        registerForm = $('.reg-form'),
+        loginForm = $('.login-form'),
+        con = $('.container');
+
     login.bind('click',function () {
         $(this).addClass('s');
-        $('.register').removeClass('s');
+        register.removeClass('s');
         registerForm.hide();
         loginForm.show();
-        $('.container').css('background','#fff')
+        con.css('background', '#ccc4bd')
     });
     register.bind('click',function () {
         $(this).addClass('s');
-        $('.login').removeClass('s');
-        registerForm.show();
+        login.removeClass('s');
+        registerForm.css('display', 'flex');
         loginForm.hide();
-        $('.container').css('background','#36B5A9')
+        con.css('background','#36B5A9')
     });
 };
 
@@ -64,75 +62,3 @@ var LogSucess = function (a) {
         window.location.href = s;
     }
 };
-
-
-// ************用户登录程序************
-var Login = function () {
-    var btn = $('.submit-log');
-    btn.bind('click', function () {
-        log('咋回事？')
-        var name = $('#username').val();
-        var pwd = $('#password').val();
-        if(validate(name) && validate(pwd)){
-            var form = {};
-            form.username = name;
-            form.password = pwd;
-            log('s是否成功生成form:',form.username, form.password);
-            var request = {
-                url:'/api/login',
-                type:'post',
-                data:form,
-                success:function (data) {
-                    LogSucess(data);
-                },
-                error:function () {
-                    alert('ajax fail');
-                }
-            };
-            $.ajax(request);
-        }else{
-            $('.message-l').text('用户名或密码太短！');
-        }
-    })
-};
-
-
-// **********用户注册**************
-var Register = function () {
-    var btn = $('.submit-reg');
-
-    btn.bind('click', function () {
-        var NewUserName = $('#new-name').val();
-        var NewPwd = $('#new-password').val();
-        if (validate(NewUserName) && validate(NewPwd)){
-            log('s是否成功生成form:',NewUserName, NewPwd);
-            var form = {};
-            form.username = NewUserName;
-            form.password = NewPwd;
-            log('s是否成功生成form:',form.username, form.password);
-            var request = {
-                url:'/register',
-                type:'post',
-                data:form,
-                success:function (data) {
-                    RegSuccess(data);
-                },
-                error:function () {
-                    alert('ajax fail');
-                }
-            };
-            $.ajax(request);
-        }else{
-            $('.message').text('用户名或密码太短！');
-        }
-    })
-};
-
-
-
-// ***********document程序************
-$(document).ready(function () {
-    changeDom();
-    Register();
-    Login();
-});

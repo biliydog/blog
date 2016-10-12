@@ -30,14 +30,14 @@ def new_article():
     r = {
         'user': user.username,
         'created_time': article.created_time,
-        'title': title
+        # 'title': title
     }
     return json.dumps(r, ensure_ascii=False)
 
-
-def find_title(a):
-    cache = a.split('<h2>')[1]
-    log('第一次分离', cache)
-    title = cache.split('</h2>', 1)[0]
-    log('第2次分离', title)
-    return title
+#
+# def find_title(a):
+#     cache = a.split('<h2>')[1]
+#     log('第一次分离', cache)
+#     title = cache.split('</h2>', 1)[0]
+#     log('第2次分离', title)
+#     return title

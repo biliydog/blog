@@ -7,7 +7,24 @@ $(function () {
     var editor = new wangEditor('new-text');
     editor.create('div1');
     article(editor);
+    Slide();
 });
+
+
+var Slide = function (){
+    var binder = $('body');
+    binder.on('click', '.slide', function(){
+        var that = $(this),
+            con = that.parent().next();
+        if (that.text()=='收起'){
+            con.slideUp();
+            that.text('展开');
+        }else{
+            con.slideDown();
+            that.text('收起')
+        }
+    })
+}
 
 
 var currentTime = function () {
@@ -34,11 +51,10 @@ var article = function (editor) {
             // 在回调过程中创建新的article板块
             newArticle.addClass('article');
             articles.prepend(newArticle);
-            var header= NewDom('<div></div>', '.article-header', newArticle);
-            NewDom('<div></div>', '.article-title', header,res.title);
-            NewDom('<div></div>', '.article-author', header,res.user);
-            NewDom('<div></div>', '.article-time', header,res.created_time);
             var para = $('<div></div>').append(content);
+            var footer= NewDom('<div></div>', '.article-footer', newArticle);
+            NewDom('<div></div>', '.article-author', footer,res.user);
+            NewDom('<div></div>', '.article-time', footer,res.created_time);
             newArticle.append(para);
         };
         log('编辑器里拿到的东西：', content);

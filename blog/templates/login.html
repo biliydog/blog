@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+    <link rel="stylesheet" href="../static/css/normalize.css">
     <link rel="stylesheet" href="../static/css/login.css">
     <link rel="shortcut icon" href="../static/img/favicon.ico"/>
     <link rel="bookmark" href="../static/img/favicon.ico"/>
@@ -11,31 +11,28 @@
     <title>login</title>
 </head>
 <body>
-    <section class="bg">
-        <div class="container">
-            <div class="pure-form pure-form-stacked content">
-                <legend>
-                    <a class="login" href="#">登录</a>
-                    <a class="register" href="#">注册</a>
-                </legend>
-                <div class="login-form">
-                    <label for="username">Username</label>
-                    <input id="username"  placeholder="用户名">
-                    <label for="password">Password</label>
-                    <input id="password"  type="password" placeholder="密码">
-                    <button type="submit" class="pure-button pure-button-primary submit-log">Sign In</button>
-                    <span class="message-l"></span>
-                </div>
-                <div class="register-forms">
-                    <label for="new-name">Username</label>
-                    <input id="new-name"   placeholder="用户名">
-                    <label for="new-password">Password</label>
-                    <input id="new-password" type="password" placeholder="密码">
-                    <button type="submit" class="pure-button pure-button-primary submit-reg">Sign Up</button>
-                    <span class="message-r"></span>
-                </div>
+    <div class="h1">Ghost in the shell.</div>
+    <section class="container">
+            <div class="headline">
+                <a href="#" class="login">登录</a>
+                <a href="#" class="register">注册</a>
             </div>
-        </div>
-    </section>
+            <div class="login-form">
+                <label for="log-username">username</label>
+                <input type="text" id="log-username">
+                <label for="log-password">password</label>
+                <input type="text" id="log-password">
+                <button class="submit-login">提交</button>
+                <div class="l-message"></div>
+            </div>
+            <div class="reg-form">
+                <label for="reg-username">username</label>
+                <input type="text" id="reg-username">
+                <label for="reg-password">password</label>
+                <input type="text" id="reg-password">
+                <button class="submit-reg">提交</button>
+                <div class="message"></div>
+            </div>
+        </section>
 </body>
 </html>

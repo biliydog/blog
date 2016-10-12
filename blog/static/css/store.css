@@ -6,11 +6,13 @@
 body{
     display: flex;
     flex-direction: column;
+    /*background-image: url('../im');*/
+    background-color: #fbffed;
 }
 .head-nav{
     width: 90%;
     margin: 0 auto;
-    background-color: #f9efff;
+    background-color: rgba(255, 128, 59, 0.32);
     display: flex;
     justify-content: space-between;
     padding: 0;
@@ -69,12 +71,73 @@ body{
 }
 .wangEditor-container{
     /*height: 300px;*/
-
     margin: 0 auto;
+}
+.article-submit{
+    height: 45px;
+    background-color: #ff803b;
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 8px;
+    font-family: "Microsoft JhengHei Light";
+    color: #fff;
 }
 section{
     display: flex;
     flex-direction: column;
     width: 90%;
     margin: 70px auto auto auto;
+}
+.article-list{
+    /*border: 1px solid #555;*/
+    margin: 20px auto auto auto;
+    width: 100%;
+}
+.article{
+    width: 100%;
+    border: 1px solid #555;
+    border-radius: 10px;
+    margin: 5px 0 20px 0;
+    padding-top: 10px;
+    background-color: #fff;
+}
+.article-side{
+    width: 100%;
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-around;
+    /*border-bottom: 1px solid #5e5e5e;*/
+    padding-bottom: 10px;
+}
+.article-content{
+    margin: 10px 5px;
+}
+.edit,
+.del,
+.article-author,
+.article-time,
+.slide{
+    margin-left: 30px;
+    font-family: "Microsoft JhengHei Light";
+    font-size: 20px;
+}
+.article-author,
+.article-time{
+    color: #555;
+    font-weight: bold;
+}
+.edit,
+.del,
+.slide{
+    border-radius: 5px;
+    color: #fff;
+}
+.edit{
+    background-color: #c7bcff;
+}
+.del{
+    background-color: #ff4d4a;
+}
+.slide{
+    background-color: #ffc59f;
 }
