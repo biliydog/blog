@@ -13,7 +13,7 @@ article = Blueprint('article', __name__)
 
 
 @article.route('/store')
-def article():
+def my_article():
     log('zhixingzhegelema')
     article_list = Article.query.all()
     log('article都拿到了吗：', len(article_list))
