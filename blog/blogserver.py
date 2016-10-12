@@ -1,5 +1,6 @@
 from flask import Flask
 from routes.sbapi import sbapi as sbapi_routes
+from routes.article import article as article_routes
 from routes.smallblog import small_blog as small_routes
 from routes.articleapi import article_api as article_api_routes
 from flask_script import Manager

@@ -24,8 +24,6 @@ def new_article():
     log('aticle成功建立了？', article.created_time, article.content)
     article.user_id = user.id
     log('拿到user了吗', article.user_id)
-    title = find_title(article.content)
-    log('title函数找得怎么样', title)
     article.save()
     r = {
         'user': user.username,
