@@ -13,6 +13,7 @@ manager = Manager(app)
 
 
 app.register_blueprint(small_routes)
+app.register_blueprint(article_routes)
 app.register_blueprint(sbapi_routes, url_prefix='/api')
 app.register_blueprint(article_api_routes, url_prefix='/api')
 
