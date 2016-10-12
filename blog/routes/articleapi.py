@@ -21,7 +21,7 @@ def new_article():
     form = request.form
     user = current_user()
     article = Article(form)
-    log('aticle成功建立了？', article.created_time)
+    log('aticle成功建立了？', article.created_time, article.content)
     article.user_id = user.id
     log('拿到user了吗', article.user_id)
     title = find_title(article.content)
