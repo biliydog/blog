@@ -30,7 +30,7 @@ def new_article():
     r = {
         'user': user.username,
         'created_time': article.created_time,
-        # 'title': title
+        'title': title
     }
     return json.dumps(r, ensure_ascii=False)
 

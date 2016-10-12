@@ -35,7 +35,7 @@ var article = function (editor) {
             newArticle.addClass('article');
             articles.prepend(newArticle);
             var header= NewDom('<div></div>', '.article-header', newArticle);
-            NewDom('<div></div>', '.article-title', header,'查找标题！');
+            NewDom('<div></div>', '.article-title', header,res.title);
             NewDom('<div></div>', '.article-author', header,res.user);
             NewDom('<div></div>', '.article-time', header,res.created_time);
             var para = $('<div></div>').append(content);
