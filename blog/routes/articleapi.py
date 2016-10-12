@@ -36,7 +36,6 @@ def new_article():
 
 
 def find_title(a):
-    begin = a.find('<h2>')
-    end = a.find('</h2>')
-    title = a.slice[begin, end]
+    cache = a.splite('<h2>', 1)[1]
+    title = cache.splite('</h2>', 1)[0]
     return title
