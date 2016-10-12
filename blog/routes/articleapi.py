@@ -36,7 +36,7 @@ def new_article():
 
 
 def find_title(a):
-    cache = a.split('<h2>', 1)[0]
+    cache = a.split('<h2>')[1]
     log('第一次分离', cache)
     title = cache.split('</h2>', 1)[0]
     log('第2次分离', title)
