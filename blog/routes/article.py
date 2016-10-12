@@ -4,7 +4,7 @@ from flask import session
 from flask import redirect
 from flask import url_for
 from models import User
-from static.utils import  log
+from static.utils import log
 from models import Article
 from flask import render_template
 
@@ -14,6 +14,7 @@ article = Blueprint('article', __name__)
 
 @article.route('/store')
 def all_article():
+    log('zhixingzhegelema')
     article_list = Article.query.all()
     log('article都拿到了吗：', len(article_list))
     list =[]
