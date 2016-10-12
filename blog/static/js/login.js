@@ -1,3 +1,7 @@
+/**
+ * Created by Administrator on 2016/9/19.
+ */
+// *********测试工具函数*********
 var log = function () {
     console.log(arguments)
 };
@@ -62,3 +66,75 @@ var LogSucess = function (a) {
         window.location.href = s;
     }
 };
+
+
+// ************用户登录程序************
+var Login = function () {
+    var btn = $('.submit-login');
+    btn.bind('click', function () {
+        log('咋回事？');
+        var name = $('#log-username').val();
+        var pwd = $('#log-password').val();
+        if(validate(name) && validate(pwd)){
+            var form = {};
+            form.username = name;
+            form.password = pwd;
+            log('s是否成功生成form:',form.username, form.password);
+            var request = {
+                url:'/api/login',
+                type:'post',
+                data:form,
+                success:function (data) {
+                    LogSucess(data);
+                },
+                error:function () {
+                    alert('ajax fail');
+                }
+            };
+            $.ajax(request);
+        }else{
+            $('.message-l').text('用户名或密码太短！');
+        }
+    })
+};
+
+
+// **********用户注册**************
+var Register = function () {
+    var btn = $('.submit-reg');
+    btn.bind('click', function () {
+        var NewUserName = $('#reg-username').val();
+        var NewPwd = $('#reg-password').val();
+        if (validate(NewUserName) && validate(NewPwd)){
+            log('s是否成功生成form:',NewUserName, NewPwd);
+            var form = {};
+            form.username = NewUserName;
+            form.password = NewPwd;
+            log('s是否成功生成form:',form.username, form.password);
+            var request = {
+                url:'/register',
+                type:'post',
+                data:form,
+                success:function (data) {
+                    RegSuccess(data);
+                },
+                error:function () {
+                    alert('ajax fail');
+                }
+            };
+            $.ajax(request);
+        }else{
+            $('.message').text('用户名或密码太短！');
+        }
+    })
+};
+
+
+
+// ***********document程序************
+$(document).ready(function () {
+    $('.container').slideDown();
+    changeDom();
+    Register();
+    Login();
+});
