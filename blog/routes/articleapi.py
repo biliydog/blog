@@ -43,11 +43,8 @@ def del_article():
 
 @article_api.route('/edit_article', methods=['POST'])
 def edit_article():
-    id = request.form
-    log('拿到的ID是？',id)
-    return redirect(url_for('articleapi.edit_view'))
+    id = request.form.get('id')
+    log('拿到的ID是？', id)
+    return redirect(url_for('article.edit_view'))
 
 
-@article_api.route('/edit_view')
-def edit_view():
-    return render_template('edit_article.html')
