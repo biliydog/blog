@@ -19,7 +19,6 @@ def all_article():
     log('article都拿到了吗：', len(article_list))
     list =[]
     for i in article_list:
-        e = {}
         user = User.query.filter_by(id=i.user_id).first().username
         e = {
             'created_time': i.created_time,

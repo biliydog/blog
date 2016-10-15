@@ -46,10 +46,6 @@ def index():
     return render_template('index.html')
 
 
-@small_blog.route('/store')
-def store_index():
-    return render_template('store.html')
-
 
 @small_blog.route('/loft')
 def loft_index_view():
