@@ -81,9 +81,9 @@ var Del = function(){
                 'id':idDom
             };
         var delSuccess = function(a){
-            var msg = JSON.parse(a),
+            var
                 article =that.parent().parent();
-            if (msg = 'del success'){
+            if (a = 'del success'){
                 article.remove();
             }
         };
