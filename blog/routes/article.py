@@ -31,7 +31,7 @@ def all_article():
     return render_template('store.html', articles=list)
 
 
-@article.route('/edit_view')
+@article.route('/edit_view' , methods=['POST'])
 def edit_view():
     return render_template('edit_article.html')
 
