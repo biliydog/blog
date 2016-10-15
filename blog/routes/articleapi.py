@@ -45,6 +45,6 @@ def del_article():
 def edit_article():
     id = request.form.get('id')
     log('拿到的ID是？', id)
-    return redirect(url_for('article.edit_view'))
+    return redirect(url_for('article.edit_view', id=id))
 
 
