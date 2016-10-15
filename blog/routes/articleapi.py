@@ -49,4 +49,4 @@ def edit_article():
 
 @article_api.route('/edit_article/<int:id>')
 def edit_view(id):
-    render_template('edit_article.html', id=id)
+    return render_template('edit_article.html', id=id)
