@@ -81,7 +81,7 @@ var Del = function(){
             form = {
                 'id':idDom
             }
-        log('草拟吗拿了操你妈的啥：'，idDom)
+
         var delSuccess = function(a){
             var
                 article =that.parent().parent();
@@ -103,6 +103,7 @@ var Del = function(){
              form = {
                  'id':idDom
              };
+         log('草拟吗拿了操你妈的啥：', idDom)
          var fn = function(a){
 
 
