@@ -1,10 +1,9 @@
 
 
 $(function () {
-
     var editor = new wangEditor('editor');
     editor.create();
-    edit()
+    edit(editor);
 });
 
 
