@@ -39,3 +39,9 @@ def del_article():
     article = Article.query.filter_by(id=id).first()
     article.delete()
     return 'del success'
+
+
+@article_api.route('/edit_article')
+def edit_article():
+    id = request.form.get('id', '')
+    return render_template('edit_article.html', id=id)

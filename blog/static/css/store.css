@@ -134,6 +134,10 @@ section{
 }
 .edit{
     background-color: #c7bcff;
+    cursor: pointer;
+}
+.edit:hover{
+    background-color: #9b91ff;
 }
 .del{
     background-color: #ff4d4a;

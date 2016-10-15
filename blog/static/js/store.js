@@ -9,6 +9,7 @@ $(function () {
     article(editor);
     Slide();
     Del();
+    Edit();
 });
 
 
@@ -25,7 +26,7 @@ var Slide = function (){
             that.text('收起')
         }
     })
-}
+};
 
 
 var currentTime = function () {
@@ -92,6 +93,23 @@ var Del = function(){
     })
 };
 
+
+ var Edit = function(){
+     var binder  = $('body');
+     binder.on('click', '.edit', function () {
+         var that = $(this),
+             idDom = that.parent().next().next().text(),
+             form = {
+                 'id':idDom
+             };
+         var fn = function(a){
+             
+
+         };
+         AjRequest('/api/edit_article', fn, form)
+
+     })
+ };
 
 var AjRequest = function (link, fn, form) {
     var request = {

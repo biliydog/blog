@@ -31,3 +31,6 @@ def all_article():
     return render_template('store.html', articles=list)
 
 
+
+
+

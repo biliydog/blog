@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑文章</title>
+     <link rel="stylesheet" type="text/css" href="../static/wangEditor-2.1.20/disk/css/wangEditor.min.css">
+    <link rel="shortcut icon" href="../static/img/favicon.ico"/>
+    <link rel="bookmark" href="../static/img/favicon.ico"/>
+    <script src="../static/js/jquery-3.0.0.js"></script>
+    <script src="../static/wangEditor-2.1.20/disk/js/wangEditor.min.js"></script>
+    <style>
+        .container{
+            display: flex;
+            flex-direction: column;
+        }
+        button{
+            height: 45px;
+            background-color: #ff803b;
+            font-size: 25px;
+            font-weight: bold;
+            letter-spacing: 8px;
+            font-family: "Microsoft JhengHei Light";
+            color: #fff;
+        }
+        .id{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<section class="container">
+    <div id="editor"></div>
+    <span class="id">{{id}}</span>
+    <button class="edited">发送编辑后的文章</button>
+</section>
+<script>
+    var editor = new wangEditor('editor');
+    editor.create();
+</script>
+</body>
+</html>
