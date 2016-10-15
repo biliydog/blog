@@ -41,7 +41,7 @@ def del_article():
     return 'del success'
 
 
-@article_api.route('/edit_article' , methods=['POST'])
+@article_api.route('/edit_article')
 def edit_article():
     id = request.form.get('id', '')
     return redirect(url_for('articleapi.edit_view', id=id))
