@@ -44,7 +44,10 @@ def del_article():
 @article_api.route('/edit_article', methods=['POST'])
 def edit_article():
     id = request.form.get('id')
+    content = request.form.get('para')
     log('拿到的ID是？', id)
-    return redirect(url_for('article.edit_view', id=id))
+    article = Article.query.filter_by(id=id).first()
+    article.content=content
+    return 'edit success'
 
 

@@ -80,7 +80,7 @@ var Del = function(){
             idDom = that.parent().next().next().text(),
             form = {
                 'id':idDom
-            }
+            };
 
         var delSuccess = function(a){
             var
@@ -94,24 +94,8 @@ var Del = function(){
     })
 };
 
-//
-// var Edit = function(){
-//     var binder  = $('body');
-//     binder.on('click', '.edit', function () {
-//         var that = $(this),
-//             idDom = that.parent().next().next().text(),
-//             form = {
-//                 'id':idDom
-//             };
-//         log('草拟吗拿了操你妈的啥：', idDom)
-//         var fn = function(a){
-//
-//
-//         };
-//         AjRequest('/api/edit_article', fn, form)
-//
-//     })
-// };
+
+
 
 
 var AjRequest = function (link, fn, form) {
