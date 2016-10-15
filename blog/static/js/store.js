@@ -80,7 +80,8 @@ var Del = function(){
             idDom = that.parent().next().next().text(),
             form = {
                 'id':idDom
-            };
+            }
+        log('草拟吗拿了操你妈的啥：'，idDom)
         var delSuccess = function(a){
             var
                 article =that.parent().parent();
