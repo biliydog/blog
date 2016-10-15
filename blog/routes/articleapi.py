@@ -43,7 +43,7 @@ def del_article():
 
 @article_api.route('/edit_article')
 def edit_article():
-    id = request.form.get('id', '')
+    id = int(request.form.get('id', ''))
     return redirect(url_for('articleapi.edit_view', id=id))
 
 
