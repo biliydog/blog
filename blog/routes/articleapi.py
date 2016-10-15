@@ -35,6 +35,7 @@ def new_article():
 @article_api.route('/article_del', methods=['POST'])
 def del_article():
     id = request.form.get('id', '')
+    log('拿到articleID了吗：', id)
     article = Article.query.filter_by(id=id).first()
     article.delete()
     return 'del success'

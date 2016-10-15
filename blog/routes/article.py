@@ -31,19 +31,3 @@ def all_article():
     return render_template('store.html', articles=list)
 
 
-@article.route('/store/del')
-def del_article():
-    log('zhixingzhegelema')
-    article_list = Article.query.all()
-    log('article都拿到了吗：', len(article_list))
-    list =[]
-    for i in article_list:
-        user = User.query.filter_by(id=i.user_id).first().username
-        e = {
-            'created_time': i.created_time,
-            'user': user,
-            'content': i.content,
-        }
-        list.append(e)
-    list.reverse()
-    return render_template('store.html', articles=list)
