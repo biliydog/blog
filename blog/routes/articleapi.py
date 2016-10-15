@@ -8,7 +8,6 @@ from flask_sqlalchemy import SQLAlchemy
 from static.utils import log
 from models import User
 import json
-from models import Loft
 from models import Article
 from routes.sbapi import current_user
 
@@ -32,10 +31,10 @@ def new_article():
     }
     return json.dumps(r, ensure_ascii=False)
 
-#
-# def find_title(a):
-#     cache = a.split('<h2>')[1]
-#     log('第一次分离', cache)
-#     title = cache.split('</h2>', 1)[0]
-#     log('第2次分离', title)
-#     return title
+
+@article_api.route('/article_del', methods=['POST'])
+def del_article():
+    id = request.form.get('id', '')
+    article = Article.query.filter_by(id=id).first()
+    article.delete()
+    return 'del success'

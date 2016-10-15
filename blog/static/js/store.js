@@ -8,6 +8,7 @@ $(function () {
     editor.create('div1');
     article(editor);
     Slide();
+    Del();
 });
 
 
@@ -69,6 +70,28 @@ var article = function (editor) {
         }
     });
 };
+
+
+var Del = function(){
+    var binder  = $('body');
+    binder.on('click', '.del', function () {
+        var that = $(this),
+            idDom = that.parent().next().next().text(),
+            form = {
+                'id':idDom
+            };
+        var delSuccess = function(a){
+            var msg = JSON.parse(a),
+                article =that.parent().parent();
+            if (msg = 'del success'){
+                article.remove();
+            }
+        };
+        AjRequest('/api/article_del', delSuccess, form)
+
+    })
+};
+
 
 var AjRequest = function (link, fn, form) {
     var request = {

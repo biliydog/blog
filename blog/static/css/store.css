@@ -141,3 +141,6 @@ section{
 .slide{
     background-color: #ffc59f;
 }
+.id{
+    display:none;
+}
