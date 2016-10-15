@@ -24,15 +24,15 @@ def all_article():
             'created_time': i.created_time,
             'user': user,
             'content': i.content,
-            'id': i.id
+            'id': int(i.id)
         }
         list.append(e)
     list.reverse()
     return render_template('store.html', articles=list)
 
 
-@article.route('/edit_view')
-def edit_view():
-    return render_template('edit_article.html')
+@article.route('/edit_view/<int:id>')
+def edit_view(id):
+    return render_template('edit_article.html', id=id)
 
 

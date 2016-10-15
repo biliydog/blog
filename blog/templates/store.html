@@ -33,8 +33,8 @@
                 <div class="article-side">
                     <div class="article-author">来自：{{i.user}}</div>
                     <div class="article-time">创建于：{{i.created_time}}</div>
-                    <a class="edit">编辑</a>
-                    <button class="del">删除</button>
+                    <a class="edit" data-id="{{i.id}}" href="">编辑</a>
+                    <button class="del" >删除</button>
                     <button class="slide">收起</button>
                 </div>
                 <div class="article-content">{{i.content|safe}}</div>
