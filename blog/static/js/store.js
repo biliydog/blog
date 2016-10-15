@@ -103,7 +103,7 @@ var Del = function(){
                  'id':idDom
              };
          var fn = function(a){
-             
+
 
          };
          AjRequest('/api/edit_article', fn, form)
