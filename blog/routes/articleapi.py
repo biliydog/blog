@@ -40,11 +40,11 @@ def del_article():
     article.delete()
     return 'del success'
 
-#
-# @article_api.route('/edit_article', methods=['POST'])
-# def edit_article():
-#     id = request.form.get('id')
-#     log('拿到的ID是？', id)
-#     return redirect(url_for('article.edit_view'))
+
+@article_api.route('/edit_article', methods=['POST'])
+def edit_article():
+    id = request.form.get('id')
+    log('拿到的ID是？', id)
+    return redirect(url_for('article.edit_view'))
 
 
