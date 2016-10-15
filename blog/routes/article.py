@@ -27,4 +27,4 @@ def all_article():
         }
         list.append(e)
     list.reverse()
-    # return render_template('store.html', articles=list)
+    return render_template('store.html', articles=list)
